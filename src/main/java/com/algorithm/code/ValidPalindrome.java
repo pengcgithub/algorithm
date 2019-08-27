@@ -19,7 +19,7 @@ package com.algorithm.code;
 public class ValidPalindrome {
 
     private boolean isAlphanumeric(char s) {
-        return (s > 'a' && s < 'z') || (s > 'A' && s < 'Z') || (s > '0' && s < '9');
+        return (s >= 'a' && s <= 'z') || (s >= 'A' && s <= 'Z') || (s >= '0' && s <= '9');
     }
 
     private boolean isEqualIgnoreCase(char a, char b) {
@@ -33,13 +33,20 @@ public class ValidPalindrome {
         int i = 0, j = s.length() - 1;
 
         for (; i < j; i++, j--) {
-            while (i < j && !isAlphanumeric(s.charAt(i))) ++j;
+            while (i < j && !isAlphanumeric(s.charAt(i))) ++i;
             while (i < j && !isAlphanumeric(s.charAt(j))) --j;
 
-
+            if (!isEqualIgnoreCase(s.charAt(i), s.charAt(j))) {
+                // 不相等
+                return false;
+            }
         }
-
         return true;
+    }
+    
+    public static void main(String args[]) {
+        ValidPalindrome validPalindrome = new ValidPalindrome();
+        System.out.println(validPalindrome.isPalindrome("race a a-car"));
     }
 
 }
