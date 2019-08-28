@@ -16,7 +16,7 @@ package com.algorithm.code;
  * @author pengc
  * @version v3.1.0
  */
-public class ValidPalindrome {
+public class One {
 
     private boolean isAlphanumeric(char s) {
         return (s >= 'a' && s <= 'z') || (s >= 'A' && s <= 'Z') || (s >= '0' && s <= '9');
@@ -45,7 +45,7 @@ public class ValidPalindrome {
     }
     
     public static void main(String args[]) {
-        ValidPalindrome validPalindrome = new ValidPalindrome();
+        One validPalindrome = new One();
         System.out.println(validPalindrome.isPalindrome("race a a-car"));
     }
 
